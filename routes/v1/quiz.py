@@ -45,6 +45,9 @@ async def _submitQuiz(Request: SubmitQuizRequest):
     quiz = data.get("quiz")
     score = 0
     for i in range(len(quiz)):
-        if quiz[i]["answer"] == answers[i]:
-            score += 1
+        try:
+            if quiz[i]["answer"] == answers[i]:
+                score += 1
+        except:
+            pass
     return {"correct":score, "total":len(quiz)}

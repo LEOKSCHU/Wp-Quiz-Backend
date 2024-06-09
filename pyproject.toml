@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "FastAPI_Template"
+name = "Wp-Quiz-Backend"
 version = "0.1.0"
-description = "FastAPI Template"
+description = "Wp Quiz Backend"
 authors = ["Leo Kim <me@leok.kr>"]
 license = "MIT"
 
@@ -14,6 +14,7 @@ pydantic = "^1.8.2"
 python-dotenv = "^0.19.1"
 aiohttp = "^3.7.4"
 gunicorn = "^20.1.0"
+motor = "^3.4.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.9b0"

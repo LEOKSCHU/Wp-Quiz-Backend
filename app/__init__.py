@@ -12,8 +12,8 @@ load_dotenv()
 
 cors_origins = json.loads(os.getenv("origins", '["*"]'))
 app_config = {
-    "title": "FastAPI Template",
-    "description": "FastAPI Template [GitHub](https://github.com/331leo/FastAPI_Template)",
+    "title": "Wp-Quiz-Backend",
+    "description": "Wp-Quiz-Backend [GitHub](https://github.com/LEOKSCHU/Wp-Quiz-Backend)",
     "version": "0.0.1",
     "redoc_url": "/docs/redoc",
     "docs_url": "/docs/swagger",

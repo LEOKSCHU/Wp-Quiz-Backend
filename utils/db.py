@@ -84,3 +84,12 @@ async def register(username, hash, name) -> bool:
     else:
         await insert_one("users", {"username": username, "hash": hash, "name":name})
         return True
+
+async def create_quiz(data):
+    return await insert_one("quiz", data)
+
+async def search_quiz(query):
+    return await search_db("quiz", "title", query)
+
+async def save_session(uuid, quiz):
+    return await insert_one("sessions", {"uuid":uuid, "quiz":quiz})

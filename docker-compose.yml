@@ -10,6 +10,8 @@ services:
       - MONGO_URI=${MONGO_URI}
       - JWT_SECRET=${JWT_SECRET}
       - TZ=Asia/Seoul
+    volumes:
+      - ./log:/code/log
     ports:
       - ${PORT}:8000
     depends_on:

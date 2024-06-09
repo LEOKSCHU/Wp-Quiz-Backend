@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - origins=${origins}
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - TZ=Asia/Seoul
+    ports:
+      - ${PORT}:8000
+    depends_on:
+      - mongodb
+    restart: always
+
+  mongodb:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    restart: always
+  
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_BASICAUTH_USERNAME=${BASIC_USERNAME}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${BASIC_PASSWORD}
+    restart: always
+
+volumes:
+  redis_data:
